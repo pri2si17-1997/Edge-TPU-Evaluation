@@ -1,44 +1,13 @@
-# Optimization of Diagnostic Radiology Imaging Models for Edge TPUs
+# Medical Imaging Model Optimization for Edge TPU
 
-## Directory Structure
+This contains source code for the paper `LEAPFROGGING MEDICAL AI IN LOW-RESOURCE CONTEXTS USING EDGE TENSOR PROCESSING UNIT`.
 
-Create `NIH_14` directory after cloing this repo.
+`chest_xray_classification` contains source code for classification model optimization and evaluation whereas `nerve_segmentation` contains source code for ultrasound segmentation model optimization and evaluation. They have their separate README in their respective directory.
 
-```bash
-.
-├── NIH_14
-├── src
-└── weights
-```
+## Acknowledgements
 
-- `NIH_14`: Download dataset from `https://www.kaggle.com/nih-chest-xrays/data` and extract in this directory.
-- `src`: This contains source code for quantization aware training, serialization of data and inference on coral board.
-- `weights`: This directory contains the edge tpu compiled weight file.
+I would like to thank "[`George Batchkala`](https://www.kaggle.com/gbatchkala)", "[`Will Arevalo`](https://www.kaggle.com/willarevalo)" and "`John Beltran`" for their source code on top of which we performed optimization.
 
-## Scripts Inside `src` Directory
+## Contribution Guidelines
 
-```bash
-src/
-├── calculate_inference_time.py
-├── calculate_metrics.ipynb
-├── post_training_qunantization.py
-├── quantization_aware_training.ipynb
-├── quantize_models.ipynb
-└── serialize_data.ipynb
-```
-
-- `calculate_inference_time.py`: This script calculate inference time on coral edge TPU. It also saves the prediction in a file which is used for metric calculation.
-
-- `calculate_metrics.ipynb`: This notebook is used to calculate AUC score. This uses predictions from coral board and ground truth labels.
-
-- `post_training_quantization.py:` This script contains utility to quantize the model to INT8.
-
-- `quantization_aware_training.ipynb`: This notebook performs quantization aware training.
-
-- `quantize_models.ipynb`: This notebook quantizes the models trained from quantization aware training to INT8.
-
-- `serialize_data.ipynb`: This notebook saves the ground truth labels for test data and extracts test images for evaluation on coral board.
-
-## Contributing Guidelines
-
-Contributors are encouraged to open github issues and create merge requests.
+Peoples are encouraged to contribute to this repository and raise their merge requests.
